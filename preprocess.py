@@ -2,7 +2,7 @@ import argparse
 import os
 from multiprocessing import cpu_count
 from tqdm import tqdm
-from datasets import blizzard, ljspeech, blizzard2013
+from datasets import blizzard, ljspeech, blizzard2013, eurooppa
 from hparams import hparams
 
 
@@ -13,6 +13,13 @@ def preprocess_blizzard(args):
   metadata = blizzard.build_from_path(in_dir, out_dir, args.num_workers, tqdm=tqdm)
   write_metadata(metadata, out_dir)
 
+
+def preprocess_eurooppa(args):
+  in_dir = os.path.join(args.base_dir, 'puhekirja_syntymattomien_sukupolvien_eurooppa')
+  out_dir = os.path.join(args.base_dir, args.output)
+  os.makedirs(out_dir, exist_ok=True)
+  metadata = eurooppa.build_from_path(in_dir, out_dir, args.num_workers, tqdm=tqdm)
+  write_metadata(metadata, out_dir)
 
 def preprocess_ljspeech(args):
   in_dir = os.path.join(args.base_dir, 'database/LJSpeech-1.0')
@@ -43,7 +50,7 @@ def main():
   parser = argparse.ArgumentParser()
   parser.add_argument('--base_dir', default=os.getcwd())
   parser.add_argument('--output', default='training')
-  parser.add_argument('--dataset', required=True, choices=['blizzard', 'ljspeech', 'blizzard2013'])
+  parser.add_argument('--dataset', required=True, choices=['blizzard', 'ljspeech', 'eurooppa','blizzard2013'])
   parser.add_argument('--num_workers', type=int, default=cpu_count())
   args = parser.parse_args()
   if args.dataset == 'blizzard':
@@ -52,7 +59,8 @@ def main():
     preprocess_ljspeech(args)
   elif args.dataset == 'blizzard2013':
     preprocess_blizzard2013(args)
-
+  if args.dataset == 'eurooppa':
+    preprocess_eurooppa(args)
 
 if __name__ == "__main__":
   main()
