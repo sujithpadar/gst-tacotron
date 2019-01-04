@@ -1,0 +1,178 @@
+WARNING:tensorflow:From /m/work/t405/T40511/work/padarus1/gst-tacotron/models/multihead_attention.py:114: calling reduce_sum (from tensorflow.python.ops.math_ops) with keep_dims is deprecated and will be removed in a future version.
+Instructions for updating:
+keep_dims is deprecated, use keepdims instead
+2018-12-09 20:51:57.664783: W tensorflow/core/kernels/queue_base.cc:277] _0_datafeeder/input_queue: Skipping cancelled enqueue attempt with queue not closed
+Checkpoint path: /m/work/t405/T40511/work/padarus1/gst-tacotron/logs-tacotron/model.ckpt
+Loading training data from: /m/work/t405/T40511/work/padarus1/gst-tacotron/training/train.txt
+Using model: tacotron
+Hyperparameters:
+  adam_beta1: 0.9
+  adam_beta2: 0.999
+  attention_depth: 256
+  batch_size: 32
+  cleaners: english_cleaners
+  decay_learning_rate: True
+  embed_depth: 256
+  encoder_depth: 256
+  frame_length_ms: 50
+  frame_shift_ms: 12.5
+  griffin_lim_iters: 60
+  initial_learning_rate: 0.002
+  max_iters: 1000
+  min_level_db: -100
+  num_freq: 1025
+  num_gst: 10
+  num_heads: 4
+  num_mels: 80
+  outputs_per_step: 2
+  power: 1.5
+  preemphasis: 0.97
+  prenet_depths: [256, 128]
+  ref_level_db: 20
+  reference_depth: 128
+  reference_filters: [32, 32, 64, 64, 128, 128]
+  rnn_depth: 256
+  sample_rate: 16000
+  style_att_dim: 128
+  style_att_type: mlp_attention
+  style_embed_depth: 256
+  use_cmudict: False
+  use_gst: True
+Loaded metadata for 13100 examples (23.94 hours)
+Initialized Tacotron model. Dimensions: 
+  text embedding:          256
+  style embedding:         256
+  prenet out:              128
+  encoder out:             512
+  attention out:           256
+  concat attn & out:       768
+  decoder cell out:        256
+  decoder out (2 frames):  160
+  decoder out (1 frame):   80
+  postnet out:             256
+  linear out:              1025
+Starting new training run at commit: None
+Generated 32 batches of size 32 in 33.524 sec
+Step 1       [39.761 sec/step, loss=0.89315, avg_loss=0.89315]
+Step 2       [21.575 sec/step, loss=0.88903, avg_loss=0.89109]
+Step 3       [15.200 sec/step, loss=0.89514, avg_loss=0.89244]
+Step 4       [12.266 sec/step, loss=0.88464, avg_loss=0.89049]
+Step 5       [10.237 sec/step, loss=0.88743, avg_loss=0.88988]
+Step 6       [9.018 sec/step, loss=0.85888, avg_loss=0.88471]
+Step 7       [8.157 sec/step, loss=0.88260, avg_loss=0.88441]
+Step 8       [7.592 sec/step, loss=0.88495, avg_loss=0.88448]
+Step 9       [6.989 sec/step, loss=0.87605, avg_loss=0.88354]
+Step 10      [6.531 sec/step, loss=0.88063, avg_loss=0.88325]
+Step 11      [6.229 sec/step, loss=0.86769, avg_loss=0.88183]
+Step 12      [5.895 sec/step, loss=0.86210, avg_loss=0.88019]
+Step 13      [5.583 sec/step, loss=0.85811, avg_loss=0.87849]
+Step 14      [5.373 sec/step, loss=0.84499, avg_loss=0.87610]
+Step 15      [5.228 sec/step, loss=0.83479, avg_loss=0.87334]
+Step 16      [5.122 sec/step, loss=0.84505, avg_loss=0.87158]
+Step 17      [4.951 sec/step, loss=0.84222, avg_loss=0.86985]
+Step 18      [4.874 sec/step, loss=0.83607, avg_loss=0.86797]
+Step 19      [4.751 sec/step, loss=0.83601, avg_loss=0.86629]
+Step 20      [4.640 sec/step, loss=0.82840, avg_loss=0.86440]
+Step 21      [4.598 sec/step, loss=0.82571, avg_loss=0.86255]
+Step 22      [4.453 sec/step, loss=0.74347, avg_loss=0.85714]
+Step 23      [4.349 sec/step, loss=0.81008, avg_loss=0.85509]
+Step 24      [4.268 sec/step, loss=0.79827, avg_loss=0.85273]
+Step 25      [4.236 sec/step, loss=0.78783, avg_loss=0.85013]
+Step 26      [4.168 sec/step, loss=0.78603, avg_loss=0.84767]
+Step 27      [4.085 sec/step, loss=0.78680, avg_loss=0.84541]
+Step 28      [4.008 sec/step, loss=0.78195, avg_loss=0.84314]
+Step 29      [3.956 sec/step, loss=0.77539, avg_loss=0.84081]
+Step 30      [3.889 sec/step, loss=0.76966, avg_loss=0.83844]
+Step 31      [3.872 sec/step, loss=0.76148, avg_loss=0.83595]
+Step 32      [3.869 sec/step, loss=0.76178, avg_loss=0.83364]
+Generated 32 batches of size 32 in 31.707 sec
+Step 33      [4.076 sec/step, loss=0.75885, avg_loss=0.83137]
+Step 34      [4.030 sec/step, loss=0.74873, avg_loss=0.82894]
+Step 35      [3.972 sec/step, loss=0.74375, avg_loss=0.82651]
+Step 36      [3.947 sec/step, loss=0.71566, avg_loss=0.82343]
+Step 37      [3.897 sec/step, loss=0.73322, avg_loss=0.82099]
+Step 38      [3.843 sec/step, loss=0.73240, avg_loss=0.81866]
+Step 39      [3.847 sec/step, loss=0.73037, avg_loss=0.81639]
+Step 40      [3.795 sec/step, loss=0.71615, avg_loss=0.81389]
+Step 41      [3.748 sec/step, loss=0.65338, avg_loss=0.80997]
+Step 42      [3.744 sec/step, loss=0.70980, avg_loss=0.80759]
+Step 43      [3.723 sec/step, loss=0.70424, avg_loss=0.80518]
+Step 44      [3.723 sec/step, loss=0.69317, avg_loss=0.80264]
+Step 45      [3.697 sec/step, loss=0.69422, avg_loss=0.80023]
+Step 46      [3.669 sec/step, loss=0.68647, avg_loss=0.79776]
+Step 47      [3.646 sec/step, loss=0.67941, avg_loss=0.79524]
+Step 48      [3.606 sec/step, loss=0.68685, avg_loss=0.79298]
+Step 49      [3.584 sec/step, loss=0.67479, avg_loss=0.79057]
+Step 50      [3.558 sec/step, loss=0.67029, avg_loss=0.78816]
+Step 51      [3.552 sec/step, loss=0.67440, avg_loss=0.78593]
+Step 52      [3.547 sec/step, loss=0.65438, avg_loss=0.78340]
+Step 53      [3.549 sec/step, loss=0.66181, avg_loss=0.78111]
+Traceback (most recent call last):
+  File "train.py", line 153, in <module>
+    main()
+  File "train.py", line 149, in main
+    train(log_dir, args)
+  File "train.py", line 93, in train
+    step, loss, opt = sess.run([global_step, model.loss, model.optimize])
+  File "/u/74/padarus1/unix/envs/tacotron/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 895, in run
+    run_metadata_ptr)
+  File "/u/74/padarus1/unix/envs/tacotron/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1128, in _run
+    feed_dict_tensor, options, run_metadata)
+  File "/u/74/padarus1/unix/envs/tacotron/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1344, in _do_run
+    options, run_metadata)
+  File "/u/74/padarus1/unix/envs/tacotron/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1350, in _do_call
+    return fn(*args)
+  File "/u/74/padarus1/unix/envs/tacotron/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1329, in _run_fn
+    status, run_metadata)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/u/74/padarus1/unix/envs/tacotron/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1350, in _do_call
+    return fn(*args)
+  File "/u/74/padarus1/unix/envs/tacotron/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1329, in _run_fn
+    status, run_metadata)
+  File "/u/74/padarus1/unix/envs/tacotron/lib/python3.6/site-packages/tensorflow/python/framework/errors_impl.py", line 473, in __exit__
+    c_api.TF_GetCode(self.status.status))
+tensorflow.python.framework.errors_impl.CancelledError: Enqueue operation was cancelled
+	 [[Node: datafeeder/input_queue_enqueue = QueueEnqueueV2[Tcomponents=[DT_INT32, DT_INT32, DT_FLOAT, DT_FLOAT], timeout_ms=-1, _device="/job:localhost/replica:0/task:0/device:CPU:0"](datafeeder/input_queue, _arg_datafeeder/inputs_0_1, _arg_datafeeder/input_lengths_0_0, _arg_datafeeder/mel_targets_0_3, _arg_datafeeder/linear_targets_0_2)]]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/m/work/t405/T40511/work/padarus1/gst-tacotron/datasets/datafeeder.py", line 75, in run
+    self._enqueue_next_group()
+  File "/m/work/t405/T40511/work/padarus1/gst-tacotron/datasets/datafeeder.py", line 97, in _enqueue_next_group
+    self._session.run(self._enqueue_op, feed_dict=feed_dict)
+  File "/u/74/padarus1/unix/envs/tacotron/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 895, in run
+    run_metadata_ptr)
+  File "/u/74/padarus1/unix/envs/tacotron/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1128, in _run
+    feed_dict_tensor, options, run_metadata)
+  File "/u/74/padarus1/unix/envs/tacotron/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1344, in _do_run
+    options, run_metadata)
+  File "/u/74/padarus1/unix/envs/tacotron/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1363, in _do_call
+    raise type(e)(node_def, op, message)
+tensorflow.python.framework.errors_impl.CancelledError: Enqueue operation was cancelled
+	 [[Node: datafeeder/input_queue_enqueue = QueueEnqueueV2[Tcomponents=[DT_INT32, DT_INT32, DT_FLOAT, DT_FLOAT], timeout_ms=-1, _device="/job:localhost/replica:0/task:0/device:CPU:0"](datafeeder/input_queue, _arg_datafeeder/inputs_0_1, _arg_datafeeder/input_lengths_0_0, _arg_datafeeder/mel_targets_0_3, _arg_datafeeder/linear_targets_0_2)]]
+
+Caused by op 'datafeeder/input_queue_enqueue', defined at:
+  File "train.py", line 153, in <module>
+    main()
+  File "train.py", line 149, in main
+    train(log_dir, args)
+  File "train.py", line 58, in train
+    feeder = DataFeeder(coord, input_path, hparams)
+  File "/m/work/t405/T40511/work/padarus1/gst-tacotron/datasets/datafeeder.py", line 46, in __init__
+    self._enqueue_op = queue.enqueue(self._placeholders)
+  File "/u/74/padarus1/unix/envs/tacotron/lib/python3.6/site-packages/tensorflow/python/ops/data_flow_ops.py", line 338, in enqueue
+    self._queue_ref, vals, name=scope)
+  File "/u/74/padarus1/unix/envs/tacotron/lib/python3.6/site-packages/tensorflow/python/ops/gen_data_flow_ops.py", line 2806, in _queue_enqueue_v2
+    timeout_ms=timeout_ms, name=name)
+  File "/u/74/padarus1/unix/envs/tacotron/lib/python3.6/site-packages/tensorflow/python/framework/op_def_library.py", line 787, in _apply_op_helper
+    op_def=op_def)
+  File "/u/74/padarus1/unix/envs/tacotron/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 3160, in create_op
+    op_def=op_def)
+  File "/u/74/padarus1/unix/envs/tacotron/lib/python3.6/site-packages/tensorflow/python/framework/ops.py", line 1625, in __init__
+    self._traceback = self._graph._extract_stack()  # pylint: disable=protected-access
+
+CancelledError (see above for traceback): Enqueue operation was cancelled
+	 [[Node: datafeeder/input_queue_enqueue = QueueEnqueueV2[Tcomponents=[DT_INT32, DT_INT32, DT_FLOAT, DT_FLOAT], timeout_ms=-1, _device="/job:localhost/replica:0/task:0/device:CPU:0"](datafeeder/input_queue, _arg_datafeeder/inputs_0_1, _arg_datafeeder/input_lengths_0_0, _arg_datafeeder/mel_targets_0_3, _arg_datafeeder/linear_targets_0_2)]]
+
