@@ -15,7 +15,8 @@ class Synthesizer:
   def load(self, checkpoint_path, reference_mel=None, model_name='tacotron'):
     print('Constructing model: %s' % model_name)
     inputs = tf.placeholder(tf.int32, [1, None], 'inputs')
-    input_lengths = tf.placeholder(tf.int32, [1], 'input_lengths') 
+    input_lengths = tf.placeholder(tf.int32, [1], 'input_lengths')
+    speaker_ids = tf.placeholder(tf.int32, [1], 'speaker_ids')
     if reference_mel is not None:
       reference_mel = tf.placeholder(tf.float32, [1, None, hparams.num_mels], 'reference_mel')
     # Only used in teacher-forcing generating mode
@@ -26,7 +27,7 @@ class Synthesizer:
 
     with tf.variable_scope('model') as scope:
       self.model = create_model(model_name, hparams)
-      self.model.initialize(inputs, input_lengths, mel_targets=mel_targets, reference_mel=reference_mel)
+      self.model.initialize(inputs, input_lengths, mel_targets=mel_targets, reference_mel=reference_mel, speaker_ids)
       self.wav_output = audio.inv_spectrogram_tensorflow(self.model.linear_outputs[0])
       self.alignments = self.model.alignments[0]
 
@@ -37,12 +38,13 @@ class Synthesizer:
     saver.restore(self.session, checkpoint_path)
 
 
-  def synthesize(self, text, mel_targets=None, reference_mel=None, alignment_path=None):
+  def synthesize(self, text, speaker_id, mel_targets=None, reference_mel=None, alignment_path=None):
     cleaner_names = [x.strip() for x in hparams.cleaners.split(',')]
     seq = text_to_sequence(text, cleaner_names)
     feed_dict = {
       self.model.inputs: [np.asarray(seq, dtype=np.int32)],
       self.model.input_lengths: np.asarray([len(seq)], dtype=np.int32),
+      self.model.speaker_ids: np.asarray([speaker_id], dtype=np.int32)
     }
     if mel_targets is not None:
       mel_targets = np.expand_dims(mel_targets, 0)

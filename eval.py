@@ -45,13 +45,14 @@ def run_eval(args):
     print('Synthesizing: %s' % args.text)
     print('Output wav file: %s' % path)
     print('Output alignments: %s' % alignment_path)
-    f.write(synth.synthesize(args.text, mel_targets=mel_targets, reference_mel=reference_mel, alignment_path=alignment_path))
+    f.write(synth.synthesize(args.text, args.speaker, mel_targets=mel_targets, reference_mel=reference_mel, alignment_path=alignment_path))
 
 
 def main():
   parser = argparse.ArgumentParser()
   parser.add_argument('--checkpoint', required=True, help='Path to model checkpoint')
   parser.add_argument('--text', required=True, default=None, help='Single test text sentence')
+  parser.add_argument('--speaker', type=int, default=374, help='Speaker ID')
   parser.add_argument('--hparams', default='',
     help='Hyperparameter overrides as a comma-separated list of name=value pairs')
   parser.add_argument('--reference_audio', default=None, help='Reference audio path')
