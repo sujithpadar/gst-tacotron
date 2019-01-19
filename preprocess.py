@@ -2,11 +2,8 @@ import argparse
 import os
 from multiprocessing import cpu_count
 from tqdm import tqdm
-<<<<<<< HEAD
 from datasets import blizzard, ljspeech, blizzard2013, eurooppa
-=======
 from datasets import blizzard, ljspeech, blizzard2013, vctk
->>>>>>> dd7427f11fb87aaec623c3df48df1341497637f3
 from hparams import hparams
 
 
@@ -61,11 +58,7 @@ def main():
   parser = argparse.ArgumentParser()
   parser.add_argument('--base_dir', default=os.getcwd())
   parser.add_argument('--output', default='training')
-<<<<<<< HEAD
   parser.add_argument('--dataset', required=True, choices=['blizzard', 'ljspeech', 'eurooppa','blizzard2013'])
-=======
-  parser.add_argument('--dataset', required=True, choices=['blizzard', 'ljspeech', 'blizzard2013','vctk'])
->>>>>>> dd7427f11fb87aaec623c3df48df1341497637f3
   parser.add_argument('--num_workers', type=int, default=cpu_count())
   args = parser.parse_args()
   if args.dataset == 'blizzard':
